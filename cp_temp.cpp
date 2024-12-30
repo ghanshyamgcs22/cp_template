@@ -3,7 +3,9 @@
 using namespace std;
 #define pb push_back
 #define ppb pop_back
-
+#define nl '\n'
+#define yes cout<<"YES"<<'\n'
+#define no cout<<"NO"<<'\n'
 #define ll long long
 
 const int MOD1 = 1e9 + 7;
