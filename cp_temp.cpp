@@ -59,7 +59,21 @@ ll getSingleHash(ll l, ll r)
     
     return hash1;
 }
+ ll kadane_sum(vector<ll>&nums)
+   {
+      ll maxi=LLONG_MIN;
+      ll sum=0;
+      for(int k=0;k<nums.size();k++)
+      {
+          sum+=(nums[k]);
 
+          maxi=max(maxi,sum);
+          if(sum<0)
+           sum=0;
+      }
+
+      return maxi;
+   }
 int main()
 { 
     return 0;
