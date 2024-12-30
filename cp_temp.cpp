@@ -74,6 +74,11 @@ ll getSingleHash(ll l, ll r)
 
       return maxi;
    }
+ll gcd(ll a,ll b)
+{
+ if(a==0LL) return b;
+    return gcd(a,b%a);
+}
 int main()
 { 
     return 0;
