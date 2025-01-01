@@ -7,7 +7,7 @@ using namespace std;
 #define yes cout<<"YES"<<'\n'
 #define no cout<<"NO"<<'\n'
 #define ll long long
-
+#define inf 1e18
 const int MOD1 = 1e9 + 7;
 const int mod = 1e9 + 7;
 const int MOD2 = 1e9 + 9;
