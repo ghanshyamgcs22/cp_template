@@ -1,4 +1,4 @@
-// https://github.com/ghanshyamgcs22/cp_template/edit/main/cp_temp.cpp
+// https://github.com/ghanshyamgcs22/cp_template/blob/main/cp_temp.cpp
 #define ghanshyam gupta
 
 
