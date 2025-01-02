@@ -1,3 +1,7 @@
+// https://github.com/ghanshyamgcs22/cp_template/edit/main/cp_temp.cpp
+#define ghanshyam gupta
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -8,6 +12,12 @@ using namespace std;
 #define no cout<<"NO"<<'\n'
 #define ll long long
 #define inf 1e18
+#define VI vector<int>
+#define VVI vector<vector<int>>
+#define all(v) v.begin(),v.end()
+#define PI pair<int,int>
+#define FOR(i, a, b) for (int i = (a); i < (b); i++)
+
 const int MOD1 = 1e9 + 7;
 const int mod = 1e9 + 7;
 const int MOD2 = 1e9 + 9;
