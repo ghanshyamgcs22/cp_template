@@ -14,8 +14,10 @@ using namespace std;
 #define inf 1e18
 #define VI vector<int>
 #define VVI vector<vector<int>>
+#define VVL vector<vector<ll>>
 #define all(v) v.begin(),v.end()
 #define PI pair<int,int>
+#define PL pair<ll,ll>
 #define FOR(i, a, b) for (int i = (a); i < (b); i++)
 
 const int MOD1 = 1e9 + 7;
@@ -86,11 +88,29 @@ ll getSingleHash(ll l, ll r)
 
       return maxi;
    }
-ll gcd(ll a,ll b)
+ll gcd(ll a,ll b){ if(a==0LL) return b;    return gcd(a,b%a);}
+
+void ghanshyam()
 {
- if(a==0LL) return b;
-    return gcd(a,b%a);
+    
+      
+ 
+       
+       
 }
+int main()
+{
+    ll t;
+    cin >> t;
+//   t=1;
+    while (t--)
+    {
+        ghanshyam();
+    }
+ 
+    return 0;
+}
+
 int main()
 { 
     return 0;
