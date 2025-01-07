@@ -19,7 +19,7 @@ using namespace std;
 #define PI pair<int,int>
 #define PL pair<ll,ll>
 #define FOR(i, a, b) for (int i = (a); i < (b); i++)
-
+ll set_bits(ll x){ return __builtin_popcountll(x);}
 const int MOD1 = 1e9 + 7;
 const int mod = 1e9 + 7;
 const int MOD2 = 1e9 + 9;
