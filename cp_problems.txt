@@ -1,3 +1,4 @@
 N. Number Reduction--> https://codeforces.com/problemset/problem/1765/N
 C. Polycarp at the Radio
 A. Zebras
+C. Competitive Fishing--> https://codeforces.com/problemset/problem/2042/C
