@@ -89,7 +89,36 @@ ll getSingleHash(ll l, ll r)
       return maxi;
    }
 ll gcd(ll a,ll b){ if(a==0LL) return b;    return gcd(a,b%a);}
+int mod_pow(int base, int exp, int mod) {
+    int result = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1) {
+            result = (result * base) % mod;
+        }
+        base = (base * base) % mod;
+        exp /= 2;
+    }
+    return result;
+}
 
+void precompute_fact(int n) {
+    fact.resize(n + 1, 1);
+    inv_fact.resize(n + 1, 1);
+
+    for (int i = 2; i <= n; ++i) {
+        fact[i] = (fact[i - 1] * i) % mod;
+    }
+
+    inv_fact[n] = mod_pow(fact[n], mod - 2, mod); // fermitt to inv
+    for (int i = n - 1; i >= 1; --i) {
+        inv_fact[i] = (inv_fact[i + 1] * (i + 1)) % mod;
+    }
+}
+
+int comb(int n, int r) {
+    if (r > n || r < 0) return 0;
+    return (fact[n] * inv_fact[r] % mod * inv_fact[n - r] % mod) % mod;
+}
 void ghanshyam()
 {
     
