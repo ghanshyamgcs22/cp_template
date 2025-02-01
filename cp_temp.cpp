@@ -100,7 +100,8 @@ int mod_pow(int base, int exp, int mod) {
     }
     return result;
 }
-
+vector<ll>fact;
+vector<ll>inv_fact;
 void precompute_fact(int n) {
     fact.resize(n + 1, 1);
     inv_fact.resize(n + 1, 1);
