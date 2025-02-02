@@ -5,7 +5,22 @@ Author ghanshyamgcs22
 */
 #include <bits/stdc++.h>
 using namespace std;
+ int dp_tsp[13][1 << 13];
 
+    int tsp(int i, int mask, vector<vector<int>>& cost) {
+        if (mask == 0) return 0; // All nodes visited
+
+        if (dp_tsp[i][mask] != -1) return dp[i][mask];
+
+        int ans = INT_MAX;
+        for (int j = 0; j < cost.size(); j++) {
+            if (mask & (1 << j)) { // If node `j` is not visited
+                ans = min(ans, cost[i][j] + tsp(j, mask ^ (1 << j), cost));
+            }
+        }
+
+        return dp_tsp[i][mask] = ans;
+    }
 void dp_on_tree(int node,vector<int>adj[],int par,vector<int>&dp)
 {
 
