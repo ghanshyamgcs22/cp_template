@@ -10,7 +10,7 @@ using namespace std;
     int tsp(int i, int mask, vector<vector<int>>& cost) {
         if (mask == 0) return 0; // All nodes visited
 
-        if (dp_tsp[i][mask] != -1) return dp[i][mask];
+        if (dp_tsp[i][mask] != -1) return dp_tsp[i][mask];
 
         int ans = INT_MAX;
         for (int j = 0; j < cost.size(); j++) {
