@@ -5,6 +5,48 @@ Author ghanshyamgcs22
 */
 #include <bits/stdc++.h>
 using namespace std;
+
+vector<int> eulr_tour_type1_v;
+unordered_map<int, int> tour_type1_mp1;
+int tour_type1_idx = 0;
+
+void dfs_eulr_tour_type1(int node, int par, vector<int> adj[]) {
+    eulr_tour_type1_v.push_back(node);
+    tour_type1_mp1[tour_type1_idx] = node;
+    tour_type1_idx++;
+
+    for (auto &it : adj[node]) {
+        if (it != par) {
+            dfs_eulr_tour_type1(it, node, adj);
+            eulr_tour_type1_v.push_back(node);
+            tour_type1_mp1[tour_type1_idx] = node;
+            tour_type1_idx++;
+        }
+    }
+}
+
+
+vector<int> eulr_tour_type2_v;
+unordered_map<int, pair<int, int>> tour_type2_mp;
+int tour_type2_idx = 0;
+
+void dfs_eulr_tour_type2(int node, int par, vector<int> adj[]) {
+    eulr_tour_type2_v.push_back(node);
+    tour_type2_mp[tour_type2_idx].first = node;
+    int curr_idx = tour_type2_idx;  
+    tour_type2_idx++;
+
+    for (auto &it : adj[node]) {
+        if (it != par) {
+            dfs_eulr_tour_type2(it, node, adj);
+        }
+    }
+
+    eulr_tour_type2_v.push_back(node);
+    tour_type2_mp[curr_idx].second = node;
+}
+
+
  int dp_tsp[13][1 << 13];
 
     int tsp(int i, int mask, vector<vector<int>>& cost) {
