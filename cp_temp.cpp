@@ -73,6 +73,29 @@ ll getSingleHash(ll l, ll r)
     
     return hash1;
 }
+
+// <-----------for int values not strings------------->
+
+ // void computePrefixHash(const vector<int> &path) {
+ //        int n = path.size();
+ //        prefixHash1.assign(n + 1, 0);
+ //        prefixHash2.assign(n + 1, 0);
+ //        power1.assign(n + 1, 1);
+ //        power2.assign(n + 1, 1);
+
+ //        for (int i = 1; i <= n; ++i) {
+ //            power1[i] = (power1[i - 1] * BASE1) % MOD1;
+ //            power2[i] = (power2[i - 1] * BASE2) % MOD2;
+ //        }
+
+ //        for (int i = 1; i <= n; ++i) {
+ //            prefixHash1[i] = (prefixHash1[i - 1] * BASE1 + (path[i - 1] + 1)) % MOD1;
+ //            prefixHash2[i] = (prefixHash2[i - 1] * BASE2 + (path[i - 1] + 1)) % MOD2;
+ //        }
+ //    }
+  
+
+
  ll kadane_sum(vector<ll>&nums)
    {
       ll maxi=LLONG_MIN;
