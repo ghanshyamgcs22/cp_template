@@ -74,6 +74,8 @@ ll getSingleHash(ll l, ll r)
     return hash1;
 }
 
+
+
 // <-----------for int values not strings------------->
 
  // void computePrefixHash(const vector<int> &path) {
@@ -143,6 +145,72 @@ int comb(int n, int r) {
     if (r > n || r < 0) return 0;
     return (fact[n] * inv_fact[r] % mod * inv_fact[n - r] % mod) % mod;
 }
+
+class SegmentTree {
+private:
+    vector<int> tree;  
+    void build(const vector<int>& arr, int node, int start, int end) {
+        if (start == end) {
+            // Leaf node stores the value itself
+            tree[node] = arr[start];
+        } else {
+            int mid = (start + end) / 2;
+            build(arr, 2 * node, start, mid);
+            build(arr, 2 * node + 1, mid + 1, end);
+
+           
+            merge(node, start, end);
+        }
+    }
+
+  
+    void merge(int node, int start, int end) {
+        int mid = (start + end) / 2;
+        if ((start + mid) % 2 == 0) {
+           
+            tree[node] = (tree[2 * node] & tree[2 * node + 1]);
+        } else {
+            
+            tree[node] = (tree[2 * node] | tree[2 * node + 1]);
+        }
+    }
+
+  
+    void update(int node, int start, int end, int idx, int value) {
+        if (start == end) {
+            // Leaf node update
+            tree[node] = value;
+        } else {
+            int mid = (start + end) / 2;
+            if (idx <= mid) {
+                update(2 * node, start, mid, idx, value);
+            } else {
+                update(2 * node + 1, mid + 1, end, idx, value);
+            }
+
+           
+            merge(node, start, end);
+        }
+    }
+
+public:
+   
+    SegmentTree(const vector<int>& arr) {
+        n = arr.size();
+        tree.resize(4 * n);
+        build(arr, 1, 0, n - 1);
+    }
+
+   
+    void update(int idx, int value) {
+        update(1, 0, n - 1, idx, value);
+    }
+
+   
+    int get_beauty() {
+        return tree[1];
+    }
+};
 void ghanshyam()
 {
     
