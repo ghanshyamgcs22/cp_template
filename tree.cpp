@@ -8,7 +8,7 @@ using namespace std;
 
 //<-------------------------- Re-rooting ------------------------>
 // int in[200005];
-// int dp[200005];
+// int out[200005];
 
 // void dfs(int node, int par, vector<int> adj[]) {
 //     in[node] = 0;
@@ -38,20 +38,23 @@ using namespace std;
 //     for (auto &it : adj[node]) {
 //         if (it == par) continue;
 
-//         dp[it] = in[it];
-//         if (it == child) {
-//             dp[it] = max(dp[it], 1 + mx2);
-//         } else {
-//             dp[it] = max(dp[it], 1 + mx1);
-//         }
+//         int longest=mx1;
+//         if(it==child)
+//         longest=mx2;
 
-//         // **Fix: Ensure dp[it] also considers dp[node]**
-//        // dp[it] = max(dp[it], dp[node] + 1);
-
+//         // **Fix: Ensure out[it] also considers out[node]**
+//         out[it] = 1+max(out[node], longest);
+ 
 //         dfs2(it, node, adj);
 //     }
 // }
+//  dfs(1, -1, adj);
+   
+//     dfs2(1, -1, adj);
 
+//     for (int i = 1; i <= n; i++) {
+//         cout << max(out[i],in[i]) << " ";
+//     }
 
 //<-------------------------- Re-rooting End------------------------>
 
