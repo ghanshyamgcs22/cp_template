@@ -6,6 +6,56 @@ Author ghanshyamgcs22
 #include <bits/stdc++.h>
 using namespace std;
 
+//<-------------------------- Re-rooting ------------------------>
+// int in[200005];
+// int dp[200005];
+
+// void dfs(int node, int par, vector<int> adj[]) {
+//     in[node] = 0;
+    
+//     for (auto &it : adj[node]) {
+//         if (it == par) continue;
+//         dfs(it, node, adj);
+//         in[node] = max(in[node], 1 + in[it]);
+//     }
+// }
+
+// void dfs2(int node, int par, vector<int> adj[]) {
+//     int mx1 = -1, mx2 = -1, child = -1;
+    
+//     for (auto &it : adj[node]) {
+//         if (it != par) {
+//             if (in[it] + 1 > mx1) {
+//                 mx2 = mx1;
+//                 mx1 = in[it] + 1;
+//                 child = it;
+//             } else if (in[it] + 1 > mx2) {
+//                 mx2 = in[it] + 1;
+//             }
+//         }
+//     }
+
+//     for (auto &it : adj[node]) {
+//         if (it == par) continue;
+
+//         dp[it] = in[it];
+//         if (it == child) {
+//             dp[it] = max(dp[it], 1 + mx2);
+//         } else {
+//             dp[it] = max(dp[it], 1 + mx1);
+//         }
+
+//         // **Fix: Ensure dp[it] also considers dp[node]**
+//        // dp[it] = max(dp[it], dp[node] + 1);
+
+//         dfs2(it, node, adj);
+//     }
+// }
+
+
+//<-------------------------- Re-rooting End------------------------>
+
+
 vector<int> eulr_tour_type1_v;
 unordered_map<int, int> tour_type1_mp1;
 int tour_type1_idx = 0;
