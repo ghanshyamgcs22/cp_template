@@ -59,6 +59,71 @@ using ll=long long;
 //<-------------------------- Re-rooting End------------------------>
 
 
+
+// <--------------------------DSU------------------------------------>
+class dsu {
+    vector<int> parent, size,rank;
+
+public:
+    dsu(int n) {
+        parent.resize(n + 1);
+        size.resize(n + 1, 1);
+        rank.resize(n + 1, 0);
+ 
+        for (int i = 0; i <= n; i++)
+            parent[i] = i;
+    }
+
+    int findPar(int node) {
+        if (parent[node] == node)
+            return node;
+        return parent[node] = findPar(parent[node]); // path compression
+    }
+
+    void unionBySize(int u, int v) {
+        int pu = findPar(u);
+        int pv = findPar(v);
+
+        if (pu == pv) // same component
+            return;
+
+        if (size[pu] < size[pv]) { // attach smaller tree to larger
+            parent[pu] = pv;
+            size[pv] += size[pu];
+        } else {
+            parent[pv] = pu;
+            size[pu] += size[pv];
+        }
+    }
+    
+    void unionByRank(int u,int v)
+    {
+        int pu=findPar(u);
+        int pv=findPar(v);
+        if(pu==pv)
+        return;
+        
+        if(rank[pu]==rank[pv])
+        {
+            parent[pu]=pv;// make of them parent
+            rank[pu]++;// increase rank of the new root
+        }
+        
+        else if(rank[pu]<rank[pv])
+        {
+            parent[pu]=pv;
+            
+        }
+        
+        else
+        {
+            parent[pv]=pu;
+        }
+    }
+};
+
+// <--------------------------DSU End-------------------------------->
+
 vector<ll> eulr_tour_type1_v;
 unordered_map<ll, ll> tour_type1_mp1;
 ll tour_type1_idx = 0;
