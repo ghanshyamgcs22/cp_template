@@ -124,6 +124,43 @@ public:
 
 // <--------------------------DSU End-------------------------------->
 
+//<--------------------------- KRUSKAL------------------------------->
+
+void kruskalMST()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<pair<int,pair<int,int>>edges;
+    for(int i=0;i<m;i++)
+    {
+        int u,v,wt;
+        cin>>u>>v>>wt;
+        edges.push_back(wt,{u,v});
+    }
+    
+    sort(edges.begin(),edges.end());
+    dsu d(n);
+    int cost=0;
+    for(auto&it:edges)
+    {
+        int wt=it.first;
+        int u=it.second.first;
+        int v=it.second.second;
+        
+        if(d.findPar(u)!=d.findPar(v))
+        {
+            d.unionByRank(u,v);
+            cost+=wt;
+            cout<<u<<" "<<v<<endl;
+        }
+    }
+    
+    cout<<sum<<endl;
+}
+
+
+//<--------------------------- KRUSKAL END---------------------------->
+
 vector<ll> eulr_tour_type1_v;
 unordered_map<ll, ll> tour_type1_mp1;
 ll tour_type1_idx = 0;
