@@ -18,6 +18,8 @@ using namespace std;
 #define all(v) v.begin(),v.end()
 #define PI pair<int,int>
 #define PL pair<ll,ll>
+#define fs first
+#define sc second
 #define FOR(i, a, b) for (int i = (a); i < (b); i++)
 ll set_bits(ll x){ return __builtin_popcountll(x);}
 const int MOD1 = 1e9 + 7;
