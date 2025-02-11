@@ -196,7 +196,7 @@ private:
     }
 
 public:
-   
+   int n;
     SegmentTree(const vector<int>& arr) {
         n = arr.size();
         tree.resize(4 * n);
