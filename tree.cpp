@@ -231,7 +231,7 @@ void dp_on_tree(int node,vector<ll>adj[],int par,vector<ll>&dp)
     }
 }
  
-void binary_lifting(int node,int par,vector<ll>adj, vector<vecor<ll>>&dp)
+void binary_lifting(int node,int par,vector<ll>adj[], vector<vecor<ll>>&dp)
 {
      //  base case
      dp[node][0]=par;
