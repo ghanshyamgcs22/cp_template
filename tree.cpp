@@ -6,6 +6,47 @@ Author ghanshyamgcs22
 #include <bits/stdc++.h>
 using namespace std;
 using ll=long long;
+
+// <----------------------Dijsktra------------------------------->
+using pii=pair<ll, ll> ; 
+
+vector<ll> dijkstra(ll n, vector<vector<pii>>& graph) {
+    priority_queue<pii, vector<pii>, greater<pii>> pq;
+    vector<ll> dist(n + 1, INF);
+    vector<ll> parent(n + 1, -1);
+
+    dist[1] = 0;
+    pq.push({0, 1});
+
+    while (!pq.empty()) {
+        auto [d, u] = pq.top();
+        pq.pop();
+        
+        if (d > dist[u]) continue; 
+
+        for (auto [v, w] : graph[u]) {
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                parent[v] = u;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+   
+    if (dist[n] == INF) return {};
+
+    
+    vector<ll> path;
+    for (int v = n; v != -1; v = parent[v])
+        path.push_back(v);
+    
+    reverse(path.begin(), path.end());
+    return path;
+}
+
+// <----------------------Dijsktra- END------------------------------->
+
 //<-------------------------- Re-rooting ------------------------>
 // ll in[200005];
 // ll out[200005];
