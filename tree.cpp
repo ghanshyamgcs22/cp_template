@@ -130,12 +130,12 @@ void kruskalMST()
 {
     int n,m;
     cin>>n>>m;
-    vector<pair<int,pair<int,int>>edges;
+    vector<pair<int,pair<int,int>>>edges;
     for(int i=0;i<m;i++)
     {
         int u,v,wt;
         cin>>u>>v>>wt;
-        edges.push_back(wt,{u,v});
+        edges.push_back({wt,{u,v}});
     }
     
     sort(edges.begin(),edges.end());
@@ -155,9 +155,8 @@ void kruskalMST()
         }
     }
     
-    cout<<sum<<endl;
+    cout<<cost<<endl;
 }
-
 
 //<--------------------------- KRUSKAL END---------------------------->
 
@@ -231,7 +230,7 @@ void dp_on_tree(int node,vector<ll>adj[],int par,vector<ll>&dp)
     }
 }
  
-void binary_lifting(int node,int par,vector<ll>adj[], vector<vecor<ll>>&dp)
+void binary_lifting(int node,int par,vector<ll>adj[], vector<vector<ll>>&dp)
 {
      //  base case
      dp[node][0]=par;
@@ -291,7 +290,11 @@ void solve_tree()
 }
 
 int main() {
-	// your code goes here
+/*
+सब सुख लहै तुम्हारी सरना,
+तुम रक्षक काहू को डरना॥
+
+*/ 
 	solve_tree(); 
 	
 
