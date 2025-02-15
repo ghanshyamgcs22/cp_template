@@ -6,7 +6,7 @@ Author ghanshyamgcs22
 #include <bits/stdc++.h>
 using namespace std;
 using ll=long long;
-
+#define FAST               ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 // <----------------------Dijsktra------------------------------->
 using pii=pair<ll, ll> ; 
 
@@ -336,6 +336,7 @@ int main() {
 तुम रक्षक काहू को डरना॥
 
 */ 
+FAST;
 	solve_tree(); 
 	
 
