@@ -21,6 +21,7 @@ using namespace std;
 #define fs first
 #define sc second
 #define FOR(i, a, b) for (int i = (a); i < (b); i++)
+#define FAST               ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 ll set_bits(ll x){ return __builtin_popcountll(x);}
 const int MOD1 = 1e9 + 7;
 const int mod = 1e9 + 7;
@@ -229,6 +230,7 @@ int main()
 सब सुख लहै तुम्हारी सरना, 
 तुम रक्षक काहू को डरना॥
 */
+FAST;
     ll t;
     cin >> t;
 //   t=1;
