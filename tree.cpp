@@ -147,7 +147,7 @@ public:
         if(rank[pu]==rank[pv])
         {
             parent[pu]=pv;// make of them parent
-            rank[pu]++;// increase rank of the new root
+            rank[pv]++;// increase rank of the new root
         }
         
         else if(rank[pu]<rank[pv])
