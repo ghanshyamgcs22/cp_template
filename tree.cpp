@@ -270,7 +270,8 @@ void dp_on_tree(int node,vector<ll>adj[],int par,vector<ll>&dp)
         dp[node]+=dp[it];
     }
 }
- 
+
+// vector<int> level;
 void binary_lifting(int node,int par,vector<ll>adj[], vector<vector<ll>>&dp)
 {
      //  base case
@@ -284,9 +285,33 @@ void binary_lifting(int node,int par,vector<ll>adj[], vector<vector<ll>>&dp)
       for(auto&it:adj[node])
       {
         if(it==par)continue;
+	       level[it] = level[node] + 1;
         binary_lifting(it,node,adj,dp);
       }
 
+}
+
+int lca(int u, int v) {
+    if (level[u] < level[v])
+        swap(u, v);
+
+    // lift u to the same level 
+    for (int i = 16; i >= 0; i--) {
+        if (level[u] - (1 << i) >= level[v])
+            u = dp[u][i];
+    }
+
+    if (u == v) return u;
+
+   
+    for (int i = 16; i >= 0; i--) {
+        if (dp[u][i] != dp[v][i]) {
+            u = dp[u][i];
+            v = dp[v][i];
+        }
+    }
+
+    return dp[u][0]; 
 }
 void solve_tree()
 {
