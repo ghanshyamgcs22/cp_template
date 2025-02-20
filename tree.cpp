@@ -7,6 +7,7 @@ Author ghanshyamgcs22
 using namespace std;
 using ll=long long;
 #define FAST               ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+vector<pair<ll,ll>>dir={{1,0},{-1,0},{0,1},{0,-1}};
 // <----------------------Dijsktra------------------------------->
 using pii=pair<ll, ll> ; 
 
