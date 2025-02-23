@@ -3,3 +3,4 @@ C. Polycarp at the Radio
 A. Zebras
 C. Competitive Fishing--> https://codeforces.com/problemset/problem/2042/C
 https://codeforces.com/contest/1294/problem/F
+https://codeforces.com/problemset/problem/76/A
