@@ -226,18 +226,13 @@ void ghanshyam()
 }
 int main()
 {
-/*
-सब सुख लहै तुम्हारी सरना, 
-तुम रक्षक काहू को डरना॥
-*/
+
 FAST;
     ll t;
     cin >> t;
-//   t=1;
-    while (t--)
-    {
-        ghanshyam();
-    }
+//   t=1; ghanshyam();
+    while (t--) ghanshyam();
+
  
     return 0;
 }
