@@ -215,6 +215,17 @@ public:
     }
 };
 
+vector<ll> fib(1e5 + 5, 0);
+
+
+void precompute_fib() {
+    fib[0] = 1;
+    fib[1] = 1;
+    for (int i = 2; i < fib.size(); i++) {
+        fib[i] = (fib[i - 1] + fib[i - 2]) % mod;
+    }
+}
+
 // find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
 void ghanshyam()
 {
