@@ -1,9 +1,10 @@
+
 // https://github.com/ghanshyamgcs22/cp_template/blob/main/cp_temp.cpp
 #define ghanshyam gupta
-
-
+ 
+ 
 #include <bits/stdc++.h>
-
+ 
 using namespace std;
 #define pb push_back
 #define ppb pop_back
@@ -13,6 +14,7 @@ using namespace std;
 #define ll long long
 #define inf 1e18
 #define VI vector<int>
+#define VL vector<ll>
 #define VVI vector<vector<int>>
 #define VVL vector<vector<ll>>
 #define all(v) v.begin(),v.end()
@@ -30,7 +32,7 @@ const int BASE1 = 31;
 const int BASE2 = 53;
 vector<ll> prefixHash1, prefixHash2;
 vector<ll> power1, power2;
-
+ 
 struct pair_hash
 {
     template <typename T1, typename T2>
@@ -41,7 +43,7 @@ struct pair_hash
         return h1 ^ (h2 << 1);
     }
 };
-
+ 
 void computePrefixHash(const string &s)
 {
     int n = s.size();
@@ -49,58 +51,58 @@ void computePrefixHash(const string &s)
     prefixHash2.resize(n + 1, 0);
     power1.resize(n + 1, 1);
     power2.resize(n + 1, 1);
-
+ 
     for (int i = 1; i <= n; ++i)
     {
         power1[i] = (power1[i - 1] * BASE1) % MOD1;
         power2[i] = (power2[i - 1] * BASE2) % MOD2;
     }
-
+ 
     for (int i = 1; i <= n; ++i)
     {
         prefixHash1[i] = (prefixHash1[i - 1] * BASE1 + (s[i - 1] - 'a' + 1)) % MOD1;
         prefixHash2[i] = (prefixHash2[i - 1] * BASE2 + (s[i - 1] - 'a' + 1)) % MOD2;
     }
 }
-
+ 
 pair<ll, ll> getDoubleHash(ll l, ll r)
 {
     ll hash1 = (prefixHash1[r] - (prefixHash1[l - 1] * power1[r - l + 1]) % MOD1 + MOD1) % MOD1;
     ll hash2 = (prefixHash2[r] - (prefixHash2[l - 1] * power2[r - l + 1]) % MOD2 + MOD2) % MOD2;
     return {hash1, hash2};
 }
-
+ 
 ll getSingleHash(ll l, ll r)
 {
     ll hash1 = (prefixHash1[r] - (prefixHash1[l - 1] * power1[r - l + 1]) % MOD1 + MOD1) % MOD1;
     
     return hash1;
 }
-
-
-
+ 
+ 
+ 
 // <-----------for int values not strings------------->
-
+ 
  // void computePrefixHash(const vector<int> &path) {
  //        int n = path.size();
  //        prefixHash1.assign(n + 1, 0);
  //        prefixHash2.assign(n + 1, 0);
  //        power1.assign(n + 1, 1);
  //        power2.assign(n + 1, 1);
-
+ 
  //        for (int i = 1; i <= n; ++i) {
  //            power1[i] = (power1[i - 1] * BASE1) % MOD1;
  //            power2[i] = (power2[i - 1] * BASE2) % MOD2;
  //        }
-
+ 
  //        for (int i = 1; i <= n; ++i) {
  //            prefixHash1[i] = (prefixHash1[i - 1] * BASE1 + (path[i - 1] + 1)) % MOD1;
  //            prefixHash2[i] = (prefixHash2[i - 1] * BASE2 + (path[i - 1] + 1)) % MOD2;
  //        }
  //    }
   
-
-
+ 
+ 
  ll kadane_sum(vector<ll>&nums)
    {
       ll maxi=LLONG_MIN;
@@ -108,12 +110,12 @@ ll getSingleHash(ll l, ll r)
       for(int k=0;k<nums.size();k++)
       {
           sum+=(nums[k]);
-
+ 
           maxi=max(maxi,sum);
           if(sum<0)
            sum=0;
       }
-
+ 
       return maxi;
    }
 ll gcd(ll a,ll b){ if(a==0LL) return b;    return gcd(a,b%a);}
@@ -133,22 +135,22 @@ vector<ll>inv_fact;
 void precompute_fact(int n) {
     fact.resize(n + 1, 1);
     inv_fact.resize(n + 1, 1);
-
+ 
     for (int i = 2; i <= n; ++i) {
         fact[i] = (fact[i - 1] * i) % mod;
     }
-
+ 
     inv_fact[n] = mod_pow(fact[n], mod - 2, mod); // fermitt to inv
     for (int i = n - 1; i >= 1; --i) {
         inv_fact[i] = (inv_fact[i + 1] * (i + 1)) % mod;
     }
 }
-
+ 
 int comb(int n, int r) {
     if (r > n || r < 0) return 0;
     return (fact[n] * inv_fact[r] % mod * inv_fact[n - r] % mod) % mod;
 }
-
+ 
 class SegmentTree {
 private:
     vector<int> tree;  
@@ -160,12 +162,12 @@ private:
             int mid = (start + end) / 2;
             build(arr, 2 * node, start, mid);
             build(arr, 2 * node + 1, mid + 1, end);
-
+ 
            
             merge(node, start, end);
         }
     }
-
+ 
   
     void merge(int node, int start, int end) {
         int mid = (start + end) / 2;
@@ -177,7 +179,7 @@ private:
             tree[node] = (tree[2 * node] | tree[2 * node + 1]);
         }
     }
-
+ 
   
     void update(int node, int start, int end, int idx, int value) {
         if (start == end) {
@@ -190,12 +192,12 @@ private:
             } else {
                 update(2 * node + 1, mid + 1, end, idx, value);
             }
-
+ 
            
             merge(node, start, end);
         }
     }
-
+ 
 public:
    int n;
     SegmentTree(const vector<int>& arr) {
@@ -203,21 +205,21 @@ public:
         tree.resize(4 * n);
         build(arr, 1, 0, n - 1);
     }
-
+ 
    
     void update(int idx, int value) {
         update(1, 0, n - 1, idx, value);
     }
-
+ 
    
     int get_beauty() {
         return tree[1];
     }
 };
-
+ 
 vector<ll> fib(1e5 + 5, 0);
-
-
+ 
+ 
 void precompute_fib() {
     fib[0] = 1;
     fib[1] = 1;
@@ -225,27 +227,25 @@ void precompute_fib() {
         fib[i] = (fib[i - 1] + fib[i - 2]) % mod;
     }
 }
-
-// find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
-void ghanshyam()
-{
-    
-      
  
-       
+// find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
+void ghanshyam() {
+    
+    
+VI
     // Please AC!!!!   
 }
 int main()
 {
-
+ 
 FAST;
     ll t;
-    cin >> t;
+   
 //   t=1; ghanshyam();
-    while (t--) ghanshyam();
-
+     cin >> t;while (t--) ghanshyam();
+ 
  
     return 0;
 }
-
-
+ 
+ 
