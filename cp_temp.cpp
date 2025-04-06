@@ -241,6 +241,15 @@ void sieve() {
     }
 }
  
+ll modInv(ll a, ll mod) {
+    ll res = 1, p = mod - 2;
+    while (p) {
+        if (p % 2) res = res * a % mod;
+        a = a * a % mod;
+        p /= 2;
+    }
+    return res;
+}
 
 // find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
 void ghanshyam() {
