@@ -254,8 +254,8 @@ ll modInv(ll a, ll mod) {
 // find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
 void ghanshyam() {
     
-    
-VI
+
+ 
     // Please AC!!!!   
 }
 int main()
