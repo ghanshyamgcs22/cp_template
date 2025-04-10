@@ -256,7 +256,18 @@ void sieve() {
         }
     }
 }
- 
+
+ vector<vector<ll>> allDiv(N);
+
+void divisors() {
+    for (int i = 1; i < N; ++i) {
+        for (int j = i; j < N; j += i) {
+            allDivs[j].push_back(i);
+        }
+    }
+}
+
+
 ll modInv(ll a, ll mod) {
     ll res = 1, p = mod - 2;
     while (p) {
