@@ -262,7 +262,7 @@ void sieve() {
 void divisors() {
     for (int i = 1; i < N; ++i) {
         for (int j = i; j < N; j += i) {
-            allDivs[j].push_back(i);
+            allDiv[j].push_back(i);
         }
     }
 }
