@@ -12,6 +12,8 @@ using namespace std;
 #define yes cout<<"YES"<<'\n'
 #define no cout<<"NO"<<'\n'
 #define ll long long
+#define db double
+#define dl double long
 #define inf 1e18
 #define VI vector<int>
 #define VL vector<ll>
@@ -30,6 +32,7 @@ const int mod = 1e9 + 7;
 const int MOD2 = 1e9 + 9;
 const int BASE1 = 31;
 const int BASE2 = 53;
+const double EPS = 1e-9;
 vector<ll> prefixHash1, prefixHash2;
 vector<ll> power1, power2;
 
@@ -277,6 +280,30 @@ ll modInv(ll a, ll mod) {
     }
     return res;
 }
+  // <------------Ternary search ----------------->
+
+    // auto f = [](double x) -> double {
+    //     // Example: a quadratic function
+    //     return -x*x +3*x + 4;
+    // };
+
+    
+    // db l = 0, r = 1e9;
+
+    // while (r - l > EPS) {
+    //     db m1 = l + (r - l) / 3.0;
+    //     db m2 = r - (r - l) / 3.0;
+
+    //     if (f(m1) < f(m2))   // for increasing than decreasing 
+    //         r = m2;
+    //     else
+    //         l = m1;
+    // }
+
+    // cout << fixed << setprecision(10) << f(l) << endl; // value of that function
+    // cout<<l<<nl;  // values of varisble
+    
+    // <------------Ternary search  End----------------->
 
 // find(adj[it].begin(), adj[it].end(), it1) != adj[it].end()) to check an val presnt or not in vector of vector
 void ghanshyam() {
