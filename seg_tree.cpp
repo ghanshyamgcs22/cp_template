@@ -1,3 +1,4 @@
+https://github.com/ghanshyamgcs22/cp_template/blob/main/seg_tree.cpp
 template<typename Node, typename Update>
 struct SegTree {
 	vector<Node> tree;
