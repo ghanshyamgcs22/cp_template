@@ -246,20 +246,40 @@ void precompute_fib() {
         fib[i] = (fib[i - 1] + fib[i - 2]) % mod;
     }
 }
-const int N = 1e6 + 5; 
+
+// <----------------------------------SIEVE---------------------------------------------------->
+
+const ll N = 1e6 + 5;
 vector<bool> is_prime(N, true);
+vector<ll> spf(N); // smallest prime factor 
 
 void sieve() {
     is_prime[0] = is_prime[1] = false;
 
-    for (int i = 2; i * i < N; ++i) {
+    for (ll i = 2; i < N; ++i) {
+        spf[i] = i; // initialize spf
+    }
+
+    for (ll i = 2; i * i < N; ++i) {
         if (is_prime[i]) {
-            for (int j = i * i; j < N; j += i)
+            for (ll j = i * i; j < N; j += i) {
                 is_prime[j] = false;
+                if (spf[j] == j)
+                    spf[j] = i; 
+            }
         }
     }
 }
 
+// Returns all prime factors (with multiplicity) of n
+vector<ll> get_prime_factors(ll n) {
+    vector<ll> factors;
+    while (n > 1) {
+        factors.push_back(spf[n]);
+        n /= spf[n];
+    }
+    return factors;
+}
  vector<vector<ll>> allDiv(N);
 
 void divisors() {
@@ -271,6 +291,7 @@ void divisors() {
 }
 
 
+// <----------------------------------SIEVE END---------------------------------------------------->
 ll modInv(ll a, ll mod) {
     ll res = 1, p = mod - 2;
     while (p) {
