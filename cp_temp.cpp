@@ -149,6 +149,32 @@ int mod_pow(int base, int exp, int mod) {
     }
     return result;
 }
+
+typedef VVL Matrix;
+
+Matrix multiply(Matrix A, Matrix B) {
+    int n = A.size();
+    Matrix C(n, vector<long long>(n, 0));
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            for (int k = 0; k < n; ++k)
+                C[i][j] = (C[i][j] + A[i][k] * B[k][j] % MOD) % MOD;
+    return C;
+}
+
+
+Matrix power(Matrix A, long long p) {
+    int n = A.size();
+    Matrix res(n, vector<long long>(n, 0));
+    for (int i = 0; i < n; ++i) res[i][i] = 1; // identity
+    while (p > 0) {
+        if (p % 2 == 1)
+            res = multiply(res, A);
+        A = multiply(A, A);
+        p /= 2;
+    }
+    return res;
+}
 vector<ll>fact;
 vector<ll>inv_fact;
 void precompute_fact(int n) {
