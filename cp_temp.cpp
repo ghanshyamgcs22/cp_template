@@ -62,7 +62,17 @@ struct pair_hash
         return h1 ^ (h2 << 1);
     }
 };
- 
+
+struct tuple_hash {
+    size_t operator()(const tuple<ll,ll,ll>& t) const noexcept {
+        auto& [i, d, prev] = t;
+        size_t h1 = hash<ll>()(i);
+        size_t h2 = hash<ll>()(d);
+        size_t h3 = hash<ll>()(prev);
+        return h1 ^ (h2 << 1) ^ (h3 << 2);
+    }
+};
+
 void computePrefixHash(const string &s)
 {
     int n = s.size();
