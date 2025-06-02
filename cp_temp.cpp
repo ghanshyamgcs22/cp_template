@@ -148,8 +148,8 @@ ll getSingleHash(ll l, ll r)
       return maxi;
    }
 ll gcd(ll a,ll b){ if(a==0LL) return b;    return gcd(a,b%a);}
-int mod_pow(int base, int exp, int mod) {
-    int result = 1;
+ll mod_pow(ll base, ll exp, ll mod) {
+    ll result = 1;
     while (exp > 0) {
         if (exp % 2 == 1) {
             result = (result * base) % mod;
