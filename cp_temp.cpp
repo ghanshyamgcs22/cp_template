@@ -282,6 +282,42 @@ void precompute_fib() {
         fib[i] = (fib[i - 1] + fib[i - 2]) % mod;
     }
 }
+// <------------------------------------------------------ Dp on Digits------------------------------------->
+string num;
+
+int dp[20][2][2][200]; // [pos][tight][leading_zero][sum/digits_mask/other_state]
+
+int f(int pos, bool tight, bool leading_zero, int sum) {
+    if (pos == num.size()) {
+        // change condition as needed, e.g.:
+        return sum == 0; // e.g. digit sum == target
+    }
+
+    if (dp[pos][tight][leading_zero][sum] != -1)
+        return dp[pos][tight][leading_zero][sum];
+
+    int ub = tight ? (num[pos] - '0') : 9;
+    int ans = 0;
+
+    for (int dig = 0; dig <= ub; ++dig) {
+        bool new_tight = tight && (dig == ub);
+        bool new_leading_zero = leading_zero && (dig == 0);
+        
+        int new_sum = sum - dig; // adjust based on what you're tracking
+
+        ans += f(pos + 1, new_tight, new_leading_zero, new_sum);
+    }
+
+    return dp[pos][tight][leading_zero][sum] = ans;
+}
+
+
+// <------------------ --------------Dp on Digit------------------------------------->
+
+
+
+
+
 
 // <----------------------------------SIEVE---------------------------------------------------->
 
