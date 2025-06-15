@@ -36,6 +36,16 @@ const double EPS = 1e-9;
 vector<ll> prefixHash1, prefixHash2;
 vector<ll> power1, power2;
 
+// <--------------------------------PBDS------------------------------>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+
+typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;//  find_by_order, order_of_key
+
+
+// <--------------------------------PBDS------------------------------>
 struct custom_hash {
     static uint64_t splitmix64(uint64_t x) {
         x += 0x9e3779b97f4a7c15;
