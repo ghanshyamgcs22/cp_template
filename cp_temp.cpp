@@ -44,7 +44,10 @@ using namespace __gnu_pbds;
 
 typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;//  find_by_order, order_of_key
 
-
+// template<typename T>
+// using pbds = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+// pbds<pair<int, int>> s;
+// s.insert({value, index}); // tie-breaker for duplicates
 // <--------------------------------PBDS------------------------------>
 struct custom_hash {
     static uint64_t splitmix64(uint64_t x) {
