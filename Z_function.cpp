@@ -1,3 +1,5 @@
+//https://github.com/ghanshyamgcs22/cp_template/blob/main/Z_function.cpp
+
 vector<int> calculateZ(const string& input) {
     int n = input.size();
     vector<int> Z(n); 
