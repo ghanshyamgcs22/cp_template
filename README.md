@@ -1,1 +1,1 @@
-Template and lib for my cp
+Templates for my cp
